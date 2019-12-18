@@ -245,63 +245,63 @@ public class GarbageLabelExample {
             return (Criteria) this;
         }
 
-        public Criteria andStatusIsNull() {
-            addCriterion("status is null");
+        public Criteria andLabelStatusIsNull() {
+            addCriterion("label_status is null");
             return (Criteria) this;
         }
 
-        public Criteria andStatusIsNotNull() {
-            addCriterion("status is not null");
+        public Criteria andLabelStatusIsNotNull() {
+            addCriterion("label_status is not null");
             return (Criteria) this;
         }
 
-        public Criteria andStatusEqualTo(Integer value) {
-            addCriterion("status =", value, "status");
+        public Criteria andLabelStatusEqualTo(Integer value) {
+            addCriterion("label_status =", value, "labelStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotEqualTo(Integer value) {
-            addCriterion("status <>", value, "status");
+        public Criteria andLabelStatusNotEqualTo(Integer value) {
+            addCriterion("label_status <>", value, "labelStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThan(Integer value) {
-            addCriterion("status >", value, "status");
+        public Criteria andLabelStatusGreaterThan(Integer value) {
+            addCriterion("label_status >", value, "labelStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThanOrEqualTo(Integer value) {
-            addCriterion("status >=", value, "status");
+        public Criteria andLabelStatusGreaterThanOrEqualTo(Integer value) {
+            addCriterion("label_status >=", value, "labelStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThan(Integer value) {
-            addCriterion("status <", value, "status");
+        public Criteria andLabelStatusLessThan(Integer value) {
+            addCriterion("label_status <", value, "labelStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThanOrEqualTo(Integer value) {
-            addCriterion("status <=", value, "status");
+        public Criteria andLabelStatusLessThanOrEqualTo(Integer value) {
+            addCriterion("label_status <=", value, "labelStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusIn(List<Integer> values) {
-            addCriterion("status in", values, "status");
+        public Criteria andLabelStatusIn(List<Integer> values) {
+            addCriterion("label_status in", values, "labelStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotIn(List<Integer> values) {
-            addCriterion("status not in", values, "status");
+        public Criteria andLabelStatusNotIn(List<Integer> values) {
+            addCriterion("label_status not in", values, "labelStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusBetween(Integer value1, Integer value2) {
-            addCriterion("status between", value1, value2, "status");
+        public Criteria andLabelStatusBetween(Integer value1, Integer value2) {
+            addCriterion("label_status between", value1, value2, "labelStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotBetween(Integer value1, Integer value2) {
-            addCriterion("status not between", value1, value2, "status");
+        public Criteria andLabelStatusNotBetween(Integer value1, Integer value2) {
+            addCriterion("label_status not between", value1, value2, "labelStatus");
             return (Criteria) this;
         }
 

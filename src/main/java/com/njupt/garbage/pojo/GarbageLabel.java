@@ -7,7 +7,7 @@ public class GarbageLabel {
 
     private String content;
 
-    private Integer status;
+    private Integer labelStatus;
 
     private Date createTime;
 
@@ -29,12 +29,12 @@ public class GarbageLabel {
         this.content = content == null ? null : content.trim();
     }
 
-    public Integer getStatus() {
-        return status;
+    public Integer getLabelStatus() {
+        return labelStatus;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setLabelStatus(Integer labelStatus) {
+        this.labelStatus = labelStatus;
     }
 
     public Date getCreateTime() {

@@ -375,6 +375,76 @@ public class GarbageCategoryExample {
             return (Criteria) this;
         }
 
+        public Criteria andCatDescIsNull() {
+            addCriterion("cat_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCatDescIsNotNull() {
+            addCriterion("cat_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCatDescEqualTo(String value) {
+            addCriterion("cat_desc =", value, "catDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCatDescNotEqualTo(String value) {
+            addCriterion("cat_desc <>", value, "catDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCatDescGreaterThan(String value) {
+            addCriterion("cat_desc >", value, "catDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCatDescGreaterThanOrEqualTo(String value) {
+            addCriterion("cat_desc >=", value, "catDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCatDescLessThan(String value) {
+            addCriterion("cat_desc <", value, "catDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCatDescLessThanOrEqualTo(String value) {
+            addCriterion("cat_desc <=", value, "catDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCatDescLike(String value) {
+            addCriterion("cat_desc like", value, "catDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCatDescNotLike(String value) {
+            addCriterion("cat_desc not like", value, "catDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCatDescIn(List<String> values) {
+            addCriterion("cat_desc in", values, "catDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCatDescNotIn(List<String> values) {
+            addCriterion("cat_desc not in", values, "catDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCatDescBetween(String value1, String value2) {
+            addCriterion("cat_desc between", value1, value2, "catDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andCatDescNotBetween(String value1, String value2) {
+            addCriterion("cat_desc not between", value1, value2, "catDesc");
+            return (Criteria) this;
+        }
+
         public Criteria andParentIdIsNull() {
             addCriterion("parent_id is null");
             return (Criteria) this;
@@ -435,63 +505,63 @@ public class GarbageCategoryExample {
             return (Criteria) this;
         }
 
-        public Criteria andStatusIsNull() {
-            addCriterion("status is null");
+        public Criteria andCatStatusIsNull() {
+            addCriterion("cat_status is null");
             return (Criteria) this;
         }
 
-        public Criteria andStatusIsNotNull() {
-            addCriterion("status is not null");
+        public Criteria andCatStatusIsNotNull() {
+            addCriterion("cat_status is not null");
             return (Criteria) this;
         }
 
-        public Criteria andStatusEqualTo(Integer value) {
-            addCriterion("status =", value, "status");
+        public Criteria andCatStatusEqualTo(Integer value) {
+            addCriterion("cat_status =", value, "catStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotEqualTo(Integer value) {
-            addCriterion("status <>", value, "status");
+        public Criteria andCatStatusNotEqualTo(Integer value) {
+            addCriterion("cat_status <>", value, "catStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThan(Integer value) {
-            addCriterion("status >", value, "status");
+        public Criteria andCatStatusGreaterThan(Integer value) {
+            addCriterion("cat_status >", value, "catStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThanOrEqualTo(Integer value) {
-            addCriterion("status >=", value, "status");
+        public Criteria andCatStatusGreaterThanOrEqualTo(Integer value) {
+            addCriterion("cat_status >=", value, "catStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThan(Integer value) {
-            addCriterion("status <", value, "status");
+        public Criteria andCatStatusLessThan(Integer value) {
+            addCriterion("cat_status <", value, "catStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThanOrEqualTo(Integer value) {
-            addCriterion("status <=", value, "status");
+        public Criteria andCatStatusLessThanOrEqualTo(Integer value) {
+            addCriterion("cat_status <=", value, "catStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusIn(List<Integer> values) {
-            addCriterion("status in", values, "status");
+        public Criteria andCatStatusIn(List<Integer> values) {
+            addCriterion("cat_status in", values, "catStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotIn(List<Integer> values) {
-            addCriterion("status not in", values, "status");
+        public Criteria andCatStatusNotIn(List<Integer> values) {
+            addCriterion("cat_status not in", values, "catStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusBetween(Integer value1, Integer value2) {
-            addCriterion("status between", value1, value2, "status");
+        public Criteria andCatStatusBetween(Integer value1, Integer value2) {
+            addCriterion("cat_status between", value1, value2, "catStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotBetween(Integer value1, Integer value2) {
-            addCriterion("status not between", value1, value2, "status");
+        public Criteria andCatStatusNotBetween(Integer value1, Integer value2) {
+            addCriterion("cat_status not between", value1, value2, "catStatus");
             return (Criteria) this;
         }
 

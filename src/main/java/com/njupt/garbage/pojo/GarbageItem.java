@@ -5,9 +5,11 @@ import java.util.Date;
 public class GarbageItem {
     private Long id;
 
-    private String name;
+    private String itemName;
 
     private String logo;
+
+    private String itemDesc;
 
     private String matters;
 
@@ -17,13 +19,11 @@ public class GarbageItem {
 
     private Long cid;
 
-    private Byte status;
+    private Byte itemStatus;
 
     private Date created;
 
     private Date updated;
-
-    private String desc;
 
     public Long getId() {
         return id;
@@ -33,12 +33,12 @@ public class GarbageItem {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getItemName() {
+        return itemName;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setItemName(String itemName) {
+        this.itemName = itemName == null ? null : itemName.trim();
     }
 
     public String getLogo() {
@@ -47,6 +47,14 @@ public class GarbageItem {
 
     public void setLogo(String logo) {
         this.logo = logo == null ? null : logo.trim();
+    }
+
+    public String getItemDesc() {
+        return itemDesc;
+    }
+
+    public void setItemDesc(String itemDesc) {
+        this.itemDesc = itemDesc == null ? null : itemDesc.trim();
     }
 
     public String getMatters() {
@@ -81,12 +89,12 @@ public class GarbageItem {
         this.cid = cid;
     }
 
-    public Byte getStatus() {
-        return status;
+    public Byte getItemStatus() {
+        return itemStatus;
     }
 
-    public void setStatus(Byte status) {
-        this.status = status;
+    public void setItemStatus(Byte itemStatus) {
+        this.itemStatus = itemStatus;
     }
 
     public Date getCreated() {
@@ -103,13 +111,5 @@ public class GarbageItem {
 
     public void setUpdated(Date updated) {
         this.updated = updated;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc == null ? null : desc.trim();
     }
 }

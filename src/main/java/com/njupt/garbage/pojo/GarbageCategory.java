@@ -11,9 +11,11 @@ public class GarbageCategory {
 
     private String logo;
 
+    private String catDesc;
+
     private Long parentId;
 
-    private Integer status;
+    private Integer catStatus;
 
     private Integer sortOrder;
 
@@ -22,8 +24,6 @@ public class GarbageCategory {
     private Date created;
 
     private Date updated;
-
-    private String desc;
 
     public Long getId() {
         return id;
@@ -57,6 +57,14 @@ public class GarbageCategory {
         this.logo = logo == null ? null : logo.trim();
     }
 
+    public String getCatDesc() {
+        return catDesc;
+    }
+
+    public void setCatDesc(String catDesc) {
+        this.catDesc = catDesc == null ? null : catDesc.trim();
+    }
+
     public Long getParentId() {
         return parentId;
     }
@@ -65,12 +73,12 @@ public class GarbageCategory {
         this.parentId = parentId;
     }
 
-    public Integer getStatus() {
-        return status;
+    public Integer getCatStatus() {
+        return catStatus;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setCatStatus(Integer catStatus) {
+        this.catStatus = catStatus;
     }
 
     public Integer getSortOrder() {
@@ -103,13 +111,5 @@ public class GarbageCategory {
 
     public void setUpdated(Date updated) {
         this.updated = updated;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc == null ? null : desc.trim();
     }
 }

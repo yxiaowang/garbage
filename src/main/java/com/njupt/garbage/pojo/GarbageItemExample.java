@@ -165,73 +165,73 @@ public class GarbageItemExample {
             return (Criteria) this;
         }
 
-        public Criteria andNameIsNull() {
-            addCriterion("name is null");
+        public Criteria andItemNameIsNull() {
+            addCriterion("item_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andNameIsNotNull() {
-            addCriterion("name is not null");
+        public Criteria andItemNameIsNotNull() {
+            addCriterion("item_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andNameEqualTo(String value) {
-            addCriterion("name =", value, "name");
+        public Criteria andItemNameEqualTo(String value) {
+            addCriterion("item_name =", value, "itemName");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotEqualTo(String value) {
-            addCriterion("name <>", value, "name");
+        public Criteria andItemNameNotEqualTo(String value) {
+            addCriterion("item_name <>", value, "itemName");
             return (Criteria) this;
         }
 
-        public Criteria andNameGreaterThan(String value) {
-            addCriterion("name >", value, "name");
+        public Criteria andItemNameGreaterThan(String value) {
+            addCriterion("item_name >", value, "itemName");
             return (Criteria) this;
         }
 
-        public Criteria andNameGreaterThanOrEqualTo(String value) {
-            addCriterion("name >=", value, "name");
+        public Criteria andItemNameGreaterThanOrEqualTo(String value) {
+            addCriterion("item_name >=", value, "itemName");
             return (Criteria) this;
         }
 
-        public Criteria andNameLessThan(String value) {
-            addCriterion("name <", value, "name");
+        public Criteria andItemNameLessThan(String value) {
+            addCriterion("item_name <", value, "itemName");
             return (Criteria) this;
         }
 
-        public Criteria andNameLessThanOrEqualTo(String value) {
-            addCriterion("name <=", value, "name");
+        public Criteria andItemNameLessThanOrEqualTo(String value) {
+            addCriterion("item_name <=", value, "itemName");
             return (Criteria) this;
         }
 
-        public Criteria andNameLike(String value) {
-            addCriterion("name like", value, "name");
+        public Criteria andItemNameLike(String value) {
+            addCriterion("item_name like", value, "itemName");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotLike(String value) {
-            addCriterion("name not like", value, "name");
+        public Criteria andItemNameNotLike(String value) {
+            addCriterion("item_name not like", value, "itemName");
             return (Criteria) this;
         }
 
-        public Criteria andNameIn(List<String> values) {
-            addCriterion("name in", values, "name");
+        public Criteria andItemNameIn(List<String> values) {
+            addCriterion("item_name in", values, "itemName");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotIn(List<String> values) {
-            addCriterion("name not in", values, "name");
+        public Criteria andItemNameNotIn(List<String> values) {
+            addCriterion("item_name not in", values, "itemName");
             return (Criteria) this;
         }
 
-        public Criteria andNameBetween(String value1, String value2) {
-            addCriterion("name between", value1, value2, "name");
+        public Criteria andItemNameBetween(String value1, String value2) {
+            addCriterion("item_name between", value1, value2, "itemName");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotBetween(String value1, String value2) {
-            addCriterion("name not between", value1, value2, "name");
+        public Criteria andItemNameNotBetween(String value1, String value2) {
+            addCriterion("item_name not between", value1, value2, "itemName");
             return (Criteria) this;
         }
 
@@ -302,6 +302,76 @@ public class GarbageItemExample {
 
         public Criteria andLogoNotBetween(String value1, String value2) {
             addCriterion("logo not between", value1, value2, "logo");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemDescIsNull() {
+            addCriterion("item_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemDescIsNotNull() {
+            addCriterion("item_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemDescEqualTo(String value) {
+            addCriterion("item_desc =", value, "itemDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemDescNotEqualTo(String value) {
+            addCriterion("item_desc <>", value, "itemDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemDescGreaterThan(String value) {
+            addCriterion("item_desc >", value, "itemDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemDescGreaterThanOrEqualTo(String value) {
+            addCriterion("item_desc >=", value, "itemDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemDescLessThan(String value) {
+            addCriterion("item_desc <", value, "itemDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemDescLessThanOrEqualTo(String value) {
+            addCriterion("item_desc <=", value, "itemDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemDescLike(String value) {
+            addCriterion("item_desc like", value, "itemDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemDescNotLike(String value) {
+            addCriterion("item_desc not like", value, "itemDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemDescIn(List<String> values) {
+            addCriterion("item_desc in", values, "itemDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemDescNotIn(List<String> values) {
+            addCriterion("item_desc not in", values, "itemDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemDescBetween(String value1, String value2) {
+            addCriterion("item_desc between", value1, value2, "itemDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andItemDescNotBetween(String value1, String value2) {
+            addCriterion("item_desc not between", value1, value2, "itemDesc");
             return (Criteria) this;
         }
 
@@ -575,63 +645,63 @@ public class GarbageItemExample {
             return (Criteria) this;
         }
 
-        public Criteria andStatusIsNull() {
-            addCriterion("status is null");
+        public Criteria andItemStatusIsNull() {
+            addCriterion("item_status is null");
             return (Criteria) this;
         }
 
-        public Criteria andStatusIsNotNull() {
-            addCriterion("status is not null");
+        public Criteria andItemStatusIsNotNull() {
+            addCriterion("item_status is not null");
             return (Criteria) this;
         }
 
-        public Criteria andStatusEqualTo(Byte value) {
-            addCriterion("status =", value, "status");
+        public Criteria andItemStatusEqualTo(Byte value) {
+            addCriterion("item_status =", value, "itemStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotEqualTo(Byte value) {
-            addCriterion("status <>", value, "status");
+        public Criteria andItemStatusNotEqualTo(Byte value) {
+            addCriterion("item_status <>", value, "itemStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThan(Byte value) {
-            addCriterion("status >", value, "status");
+        public Criteria andItemStatusGreaterThan(Byte value) {
+            addCriterion("item_status >", value, "itemStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThanOrEqualTo(Byte value) {
-            addCriterion("status >=", value, "status");
+        public Criteria andItemStatusGreaterThanOrEqualTo(Byte value) {
+            addCriterion("item_status >=", value, "itemStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThan(Byte value) {
-            addCriterion("status <", value, "status");
+        public Criteria andItemStatusLessThan(Byte value) {
+            addCriterion("item_status <", value, "itemStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThanOrEqualTo(Byte value) {
-            addCriterion("status <=", value, "status");
+        public Criteria andItemStatusLessThanOrEqualTo(Byte value) {
+            addCriterion("item_status <=", value, "itemStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusIn(List<Byte> values) {
-            addCriterion("status in", values, "status");
+        public Criteria andItemStatusIn(List<Byte> values) {
+            addCriterion("item_status in", values, "itemStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotIn(List<Byte> values) {
-            addCriterion("status not in", values, "status");
+        public Criteria andItemStatusNotIn(List<Byte> values) {
+            addCriterion("item_status not in", values, "itemStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusBetween(Byte value1, Byte value2) {
-            addCriterion("status between", value1, value2, "status");
+        public Criteria andItemStatusBetween(Byte value1, Byte value2) {
+            addCriterion("item_status between", value1, value2, "itemStatus");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotBetween(Byte value1, Byte value2) {
-            addCriterion("status not between", value1, value2, "status");
+        public Criteria andItemStatusNotBetween(Byte value1, Byte value2) {
+            addCriterion("item_status not between", value1, value2, "itemStatus");
             return (Criteria) this;
         }
 
