@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>淘淘商城后台管理系统</title>
+    <title>垃圾分类后台管理系统</title>
     <link rel="stylesheet" type="text/css" href="js/jquery-easyui-1.4.1/themes/default/easyui.css"/>
     <link rel="stylesheet" type="text/css" href="js/jquery-easyui-1.4.1/themes/icon.css"/>
     <link rel="stylesheet" type="text/css" href="css/taotao.css"/>
@@ -25,7 +25,7 @@
             <ul>
                 <%--每一个url对应着一个jsp，当前url加上jsp名--%>
                 <li data-options="attributes:{'url':'item-add'}">新增商品</li>
-                <li data-options="attributes:{'url':'item-list'}">查询商品</li>
+                <li data-options="attributes:{'url':'item-list'}">查询垃圾分类</li>
                 <li data-options="attributes:{'url':'item-param-list'}">规格参数</li>
             </ul>
         </li>

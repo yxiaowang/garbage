@@ -1,5 +1,6 @@
 package com.njupt.garbage.service;
 
+import com.njupt.garbage.common.pojo.EUDataGridResult;
 import com.njupt.garbage.common.pojo.Result;
 import com.njupt.garbage.pojo.GarbageItem;
 
@@ -11,4 +12,5 @@ public interface GarbageItemService {
     GarbageItem findGarbageItemById(long id);
     Result deleteByItemName(String name);
     List<GarbageItem> findGarbageByName(String name);
+    EUDataGridResult findItemList(int page, int rows) throws Exception;
 }

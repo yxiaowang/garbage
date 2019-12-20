@@ -48,7 +48,7 @@
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper</artifactId>
-            <version>3.4.2</version>
+            <version>4.1.1</version>
         </dependency>
 <!--        注意使用1.1以上的版本，与mysql8匹配-->
         <dependency>

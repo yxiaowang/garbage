@@ -10,4 +10,14 @@ public class PageController {
     public String showIndex(){
         return "index";
     }
+
+    @RequestMapping("/item-list")
+    public String showItemListPage(){
+        return "item-list";
+    }
+
+    @RequestMapping("/item-add")
+    public String showItemAddPage(){
+        return "item-add";
+    }
 }
