@@ -1,6 +1,7 @@
 package com.njupt.garbage.service.impl;
 
 import com.njupt.garbage.common.pojo.EUTreeNode;
+import com.njupt.garbage.common.pojo.Result;
 import com.njupt.garbage.mapper.GarbageCategoryMapper;
 import com.njupt.garbage.pojo.GarbageCategory;
 import com.njupt.garbage.pojo.GarbageCategoryExample;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -42,5 +44,28 @@ public class GarbageItemCatServiceImpl implements GarbageCatService {
             }
         }
         return treeNodes;
+    }
+
+    @Override
+    public Result addCat(Long cid, GarbageCategory garbageCategory) {
+        garbageCategory.setParentId(cid);
+        // 首先更新其父目录的isParent属性
+        GarbageCategory father = new GarbageCategory();
+        father.setId(garbageCategory.getParentId());
+        father.setIsParent(true);
+        garbageCategoryMapper.updateByPrimaryKeySelective(father);
+        // 其次添加该category
+        garbageCategory.setIsParent(false);
+        Date date = new Date();
+        garbageCategory.setCreated(date);
+        garbageCategory.setCatStatus(1);
+        garbageCategory.setUpdated(date);
+        garbageCategoryMapper.insert(garbageCategory);
+        return Result.ok();
+    }
+
+    @Override
+    public Result updateCat(GarbageCategory garbageCategory) {
+        return null;
     }
 }
