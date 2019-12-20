@@ -81,4 +81,11 @@ public class GarbageItemServiceImpl implements GarbageItemService {
         garbageItemMapper.updateByPrimaryKey(garbageItem);
         return Result.ok();
     }
+
+    @Transactional
+    @Override
+    public Result deleteById(long id) {
+        garbageItemMapper.deleteByPrimaryKey(id);
+        return Result.ok();
+    }
 }

@@ -41,6 +41,16 @@ public class GarbageItemController {
         return result;
     }
 
+    @RequestMapping("/item/delete")
+    @ResponseBody
+    public Result deleteById(String ids){
+        String[] idss = ids.split(",");
+        for (String id: idss){
+            garbageItemService.deleteById(Long.parseLong(id));
+        }
+        return Result.ok();
+    }
+
     @RequestMapping("/item/findById/{id}")
     @ResponseBody
     public GarbageItem findGarbageItemById(@PathVariable long id){

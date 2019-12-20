@@ -14,4 +14,5 @@ public interface GarbageItemService {
     List<GarbageItem> findGarbageByName(String name);
     EUDataGridResult findItemList(int page, int rows) throws Exception;
     Result updateItem(GarbageItem garbageItem);
+    Result deleteById(long id);
 }
