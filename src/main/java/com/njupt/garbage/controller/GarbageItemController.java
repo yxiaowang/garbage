@@ -34,6 +34,13 @@ public class GarbageItemController {
         return euDataGridResult;
     }
 
+    @RequestMapping("/item/update")
+    @ResponseBody
+    public Result updateItem(GarbageItem item){
+        Result result = garbageItemService.updateItem(item);
+        return result;
+    }
+
     @RequestMapping("/item/findById/{id}")
     @ResponseBody
     public GarbageItem findGarbageItemById(@PathVariable long id){

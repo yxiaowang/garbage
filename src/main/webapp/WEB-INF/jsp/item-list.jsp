@@ -22,7 +22,7 @@
 </table>
 
 <div id="itemEditWindow" class="easyui-window" title="编辑商品"
-     data-options="modal:true,closed:true,iconCls:'icon-save',href:'/rest/page/item-edit'"
+     data-options="modal:true,closed:true,iconCls:'icon-save',href:'/item-edit'"
      style="width:80%;height:80%;padding:10px;">
 </div>
 <script>

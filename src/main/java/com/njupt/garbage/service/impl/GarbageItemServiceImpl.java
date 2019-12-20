@@ -73,4 +73,12 @@ public class GarbageItemServiceImpl implements GarbageItemService {
 
         return null;
     }
+
+    @Override
+    public Result updateItem(GarbageItem garbageItem) {
+        garbageItem.setCreated(new Date());
+        garbageItem.setUpdated(new Date());
+        garbageItemMapper.updateByPrimaryKey(garbageItem);
+        return Result.ok();
+    }
 }

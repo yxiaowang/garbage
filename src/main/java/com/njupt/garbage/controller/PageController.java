@@ -20,4 +20,9 @@ public class PageController {
     public String showItemAddPage(){
         return "item-add";
     }
+
+    @RequestMapping("/item-edit")
+    public String showItemEditPage(){
+        return "item-edit";
+    }
 }
