@@ -19,7 +19,7 @@ public class GarbageItemController {
     @Autowired
     private GarbageItemService garbageItemService;
 
-    @RequestMapping("/item/add")
+    @RequestMapping("/item/save")
     @ResponseBody
     public Result addGarbageItem(GarbageItem garbageItem){
         Result result = garbageItemService.addGarbageItem(garbageItem);
