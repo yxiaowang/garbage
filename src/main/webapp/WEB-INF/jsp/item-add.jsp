@@ -56,20 +56,7 @@
                     <input type="hidden" name="image"/>
                 </td>
             </tr>
-<%--            <tr>--%>
-<%--                <td>商品描述:</td>--%>
-<%--                <td>--%>
-<%--                    <textarea style="width:800px;height:300px;visibility:hidden;" name="desc"></textarea>--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--            <tr class="params hide">--%>
-<%--                <td>商品规格:</td>--%>
-<%--                <td>--%>
-
-<%--                </td>--%>
-<%--            </tr>--%>
         </table>
-        <input type="hidden" name="itemParams"/>
     </form>
     <div style="padding:5px">
         <%--javascript:void(0)不会整体刷新页面，知识点击该按钮，会执行响应的事件--%>
@@ -81,10 +68,6 @@
     var itemAddEditor;
     //页面初始化完毕后执行此方法
     $(function () {
-        //创建富文本编辑器
-        //itemAddEditor富文本编辑器			//引用itemAddForm 表单中name=desc即文本域的元素
-        //调用common.js中的TAOTAO对象的createEditor方法，创建编辑器
-        itemAddEditor = TAOTAO.createEditor("#itemAddForm [name=desc]");
         //初始化类目选择和图片上传器
         TAOTAO.init({
             fun: function (node) {
@@ -102,13 +85,12 @@
             return;
         }
         //同步文本框中的商品描述，由于富文本编辑器不是form表单中内容，需要同步到form表单
-        // itemAddEditor.sync();
-        //ajax的post方式提交表单
         //$("#itemAddForm").serialize()将表单序列号为key-value形式的字符串
         $.post("/item/save", $("#itemAddForm").serialize(), function (data) {
             //这里的data数据是响应的json数据
             if (data.status == 200) {
-                $.messager.alert('提示', '新增商品成功!');
+                $.messager.alert('提示', '新增分类成功!');
+                clearForm();
             }
         });
     }

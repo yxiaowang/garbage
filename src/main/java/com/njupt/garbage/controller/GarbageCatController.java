@@ -1,5 +1,6 @@
 package com.njupt.garbage.controller;
 
+import com.njupt.garbage.common.pojo.EUDataGridResult;
 import com.njupt.garbage.common.pojo.EUTreeNode;
 import com.njupt.garbage.common.pojo.Result;
 import com.njupt.garbage.pojo.GarbageCategory;
@@ -31,4 +32,29 @@ public class GarbageCatController {
         Result result = garbageCatService.addCat(cid, garbageCategory);
         return result;
     }
+
+    @RequestMapping("/cat/list")
+    @ResponseBody
+    public EUDataGridResult findCatList(Integer page, Integer rows) throws Exception{
+        EUDataGridResult result = garbageCatService.findCatList(page, rows);
+        return result;
+    }
+
+    @RequestMapping("/cat/update")
+    @ResponseBody
+    public Result updateCat(Long cid, GarbageCategory garbageCategory){
+        Result result = garbageCatService.updateCat(cid, garbageCategory);
+        return result;
+    }
+
+    @RequestMapping("/cat/delete")
+    @ResponseBody
+    public Result deleteCatById(String ids){
+        String[] idss = ids.split(",");
+        for (String id: idss){
+            garbageCatService.deleteCatById(Long.parseLong(id));
+        }
+        return Result.ok();
+    }
+
 }

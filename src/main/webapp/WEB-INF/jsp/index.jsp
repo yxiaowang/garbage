@@ -24,10 +24,11 @@
             <span>商品管理</span>
             <ul>
                 <%--每一个url对应着一个jsp，当前url加上jsp名--%>
-                <li data-options="attributes:{'url':'item-add'}">新增商品</li>
-                <li data-options="attributes:{'url':'catAdd'}">新增垃圾分类目录</li>
+                <li data-options="attributes:{'url':'cat-list'}">查询分类目录</li>
                 <li data-options="attributes:{'url':'item-list'}">查询垃圾分类</li>
-                <li data-options="attributes:{'url':'item-param-list'}">规格参数</li>
+                <li data-options="attributes:{'url':'item-add'}">新增垃圾分类</li>
+                <li data-options="attributes:{'url':'catAdd'}">新增分类目录</li>
+
             </ul>
         </li>
         <li>

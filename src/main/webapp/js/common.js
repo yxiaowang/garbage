@@ -111,6 +111,9 @@ var TT = TAOTAO = {
             } else {
                 _ele.after("<span style='margin-left:10px;'></span>");
             }
+            /**
+                此处需要实现选择非叶子节点的功能，并且在给定的选择器返回非叶子节点的id
+             */
             //绑定click事件，点击click展现一个窗口
             _ele.unbind('click').click(function () {
                 $("<div>").css({padding: "5px"}).html("<ul>")
@@ -147,6 +150,7 @@ var TT = TAOTAO = {
                         }
                     }).window('open');
             });
+
         });
     },
 

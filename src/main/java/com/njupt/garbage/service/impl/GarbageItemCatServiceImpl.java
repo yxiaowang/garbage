@@ -1,10 +1,15 @@
 package com.njupt.garbage.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.njupt.garbage.common.pojo.EUDataGridResult;
 import com.njupt.garbage.common.pojo.EUTreeNode;
 import com.njupt.garbage.common.pojo.Result;
 import com.njupt.garbage.mapper.GarbageCategoryMapper;
 import com.njupt.garbage.pojo.GarbageCategory;
 import com.njupt.garbage.pojo.GarbageCategoryExample;
+import com.njupt.garbage.pojo.GarbageItem;
+import com.njupt.garbage.pojo.GarbageItemExample;
 import com.njupt.garbage.service.GarbageCatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,12 +53,16 @@ public class GarbageItemCatServiceImpl implements GarbageCatService {
 
     @Override
     public Result addCat(Long cid, GarbageCategory garbageCategory) {
-        garbageCategory.setParentId(cid);
-        // 首先更新其父目录的isParent属性
-        GarbageCategory father = new GarbageCategory();
-        father.setId(garbageCategory.getParentId());
-        father.setIsParent(true);
-        garbageCategoryMapper.updateByPrimaryKeySelective(father);
+        if (cid != null){
+            garbageCategory.setParentId(cid);
+            // 首先更新其父目录的isParent属性
+            GarbageCategory father = new GarbageCategory();
+            father.setId(garbageCategory.getParentId());
+            father.setIsParent(true);
+            garbageCategoryMapper.updateByPrimaryKeySelective(father);
+        }else{
+            garbageCategory.setParentId((long)0);
+        }
         // 其次添加该category
         garbageCategory.setIsParent(false);
         Date date = new Date();
@@ -65,7 +74,40 @@ public class GarbageItemCatServiceImpl implements GarbageCatService {
     }
 
     @Override
-    public Result updateCat(GarbageCategory garbageCategory) {
-        return null;
+    public EUDataGridResult findCatList(int page, int rows) throws Exception {
+        GarbageCategoryExample example = new GarbageCategoryExample();
+        GarbageCategoryExample.Criteria criteria = example.createCriteria();
+        // 设置分页
+        PageHelper.startPage(page, rows);
+        List<GarbageCategory> list = garbageCategoryMapper.selectByExample(example);
+        PageInfo<GarbageCategory> pageInfo = new PageInfo<GarbageCategory>(list);
+        EUDataGridResult euDataGridResult = new EUDataGridResult();
+        euDataGridResult.setRows(list);
+        euDataGridResult.setTotal(pageInfo.getTotal());
+        return euDataGridResult;
+    }
+
+    @Override
+    public Result updateCat(Long cid, GarbageCategory garbageCategory) {
+        if (cid != null){
+            // 更新父目录的状态
+            garbageCategory.setParentId(cid);
+            GarbageCategory father = new GarbageCategory();
+            father.setId(garbageCategory.getParentId());
+            father.setIsParent(true);
+            garbageCategoryMapper.updateByPrimaryKeySelective(father);
+        }
+
+        // 其次更新该category
+        Date date = new Date();
+        garbageCategory.setUpdated(date);
+        garbageCategoryMapper.updateByPrimaryKeySelective(garbageCategory);
+        return Result.ok();
+    }
+
+    @Override
+    public Result deleteCatById(Long id) {
+        garbageCategoryMapper.deleteByPrimaryKey(id);
+        return Result.ok();
     }
 }

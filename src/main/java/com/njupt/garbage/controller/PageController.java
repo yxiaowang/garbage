@@ -18,7 +18,7 @@ public class PageController {
 
     @RequestMapping("/item-add")
     public String showItemAddPage(){
-        return "item-dd";
+        return "item-add";
     }
 
     @RequestMapping("/item-edit")
@@ -29,5 +29,15 @@ public class PageController {
     @RequestMapping("/catAdd")
     public String showCatAddPage(){
         return "catAdd";
+    }
+
+    @RequestMapping("/cat-list")
+    public String showCatListPage(){
+        return "cat-list";
+    }
+
+    @RequestMapping("/cat-edit")
+    public String showCatEditPage(){
+        return "cat-edit";
     }
 }

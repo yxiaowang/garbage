@@ -3,7 +3,7 @@
 <script type="text/javascript" charset="utf-8" src="/js/kindeditor-4.1.10/kindeditor-all-min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/js/kindeditor-4.1.10/lang/zh_CN.js"></script>
 <div style="padding:10px 10px 10px 10px">
-    <form id="itemeEditForm" class="itemForm" method="post">
+    <form id="itemEditForm" class="itemForm" method="post">
         <input type="hidden" name="id"/>
         <input type="hidden" name="itemStatus"/>
         <table cellpadding="5">
@@ -65,13 +65,13 @@
 </div>
 <script type="text/javascript">
     function submitForm() {
-        if (!$('#itemeEditForm').form('validate')) {
+        if (!$('#itemEditForm').form('validate')) {
             $.messager.alert('提示', '表单还未填写完成!');
             return;
         }
-        $.post("/item/update", $("#itemeEditForm").serialize(), function (data) {
+        $.post("/item/update", $("#itemEditForm").serialize(), function (data) {
             if (data.status == 200) {
-                $.messager.alert('提示', '修改商品成功!', 'info', function () {
+                $.messager.alert('提示', '修改分类成功!', 'info', function () {
                     $("#itemEditWindow").window('close');
                     $("#itemList").datagrid("reload");
                 });
