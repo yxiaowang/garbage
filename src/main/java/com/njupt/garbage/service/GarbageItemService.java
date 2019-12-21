@@ -8,11 +8,11 @@ import java.util.List;
 
 public interface GarbageItemService {
 
-    Result addGarbageItem(GarbageItem garbageItem);
+    Result addGarbageItem(String image, GarbageItem garbageItem);
     GarbageItem findGarbageItemById(long id);
     Result deleteByItemName(String name);
     List<GarbageItem> findGarbageByName(String name);
     EUDataGridResult findItemList(int page, int rows) throws Exception;
-    Result updateItem(GarbageItem garbageItem);
+    Result updateItem(String image, GarbageItem garbageItem);
     Result deleteById(long id);
 }

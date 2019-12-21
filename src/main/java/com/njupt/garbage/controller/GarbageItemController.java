@@ -21,8 +21,8 @@ public class GarbageItemController {
 
     @RequestMapping("/item/save")
     @ResponseBody
-    public Result addGarbageItem(GarbageItem garbageItem){
-        Result result = garbageItemService.addGarbageItem(garbageItem);
+    public Result addGarbageItem(String image, GarbageItem garbageItem){
+        Result result = garbageItemService.addGarbageItem(image, garbageItem);
         return result;
     }
 
@@ -36,8 +36,8 @@ public class GarbageItemController {
 
     @RequestMapping("/item/update")
     @ResponseBody
-    public Result updateItem(GarbageItem item){
-        Result result = garbageItemService.updateItem(item);
+    public Result updateItem(String image, GarbageItem item){
+        Result result = garbageItemService.updateItem(image, item);
         return result;
     }
 

@@ -28,8 +28,8 @@ public class GarbageCatController {
 
     @RequestMapping("/cat/save")
     @ResponseBody
-    public Result addCat(Long cid, GarbageCategory garbageCategory){
-        Result result = garbageCatService.addCat(cid, garbageCategory);
+    public Result addCat(String image, Long cid, GarbageCategory garbageCategory){
+        Result result = garbageCatService.addCat(image, cid, garbageCategory);
         return result;
     }
 
@@ -42,8 +42,8 @@ public class GarbageCatController {
 
     @RequestMapping("/cat/update")
     @ResponseBody
-    public Result updateCat(Long cid, GarbageCategory garbageCategory){
-        Result result = garbageCatService.updateCat(cid, garbageCategory);
+    public Result updateCat(String image, Long cid, GarbageCategory garbageCategory){
+        Result result = garbageCatService.updateCat(image, cid, garbageCategory);
         return result;
     }
 

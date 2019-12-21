@@ -9,8 +9,8 @@ import java.util.List;
 
 public interface GarbageCatService {
     List<EUTreeNode> findCat(long parent_id);
-    Result addCat(Long cid, GarbageCategory garbageCategory);
-    Result updateCat(Long cid, GarbageCategory garbageCategory);
+    Result addCat(String image, Long cid, GarbageCategory garbageCategory);
+    Result updateCat(String image, Long cid, GarbageCategory garbageCategory);
     EUDataGridResult findCatList(int page, int rows) throws Exception;
     Result deleteCatById(Long id);
 }

@@ -25,13 +25,14 @@ public class GarbageItemServiceImpl implements GarbageItemService {
 
     @Transactional
     @Override
-    public Result addGarbageItem(GarbageItem garbageItem) {
+    public Result addGarbageItem(String image, GarbageItem garbageItem) {
         //设置id
         Long id = IDUtils.genItemId();
         //设置状态1-正常，2-下架，3-删除',
 
         //设置创建和更新时间为当前时间
         Date date = new Date();
+        garbageItem.setLogo(image);
         garbageItem.setId(id);
         garbageItem.setCreated(date);
         garbageItem.setUpdated(date);
@@ -75,7 +76,10 @@ public class GarbageItemServiceImpl implements GarbageItemService {
     }
 
     @Override
-    public Result updateItem(GarbageItem garbageItem) {
+    public Result updateItem(String image, GarbageItem garbageItem) {
+        if (image != null){
+            garbageItem.setLogo(image);
+        }
         garbageItem.setCreated(new Date());
         garbageItem.setUpdated(new Date());
         garbageItemMapper.updateByPrimaryKey(garbageItem);

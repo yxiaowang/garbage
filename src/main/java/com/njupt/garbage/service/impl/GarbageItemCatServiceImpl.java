@@ -52,7 +52,7 @@ public class GarbageItemCatServiceImpl implements GarbageCatService {
     }
 
     @Override
-    public Result addCat(Long cid, GarbageCategory garbageCategory) {
+    public Result addCat(String image, Long cid, GarbageCategory garbageCategory) {
         if (cid != null){
             garbageCategory.setParentId(cid);
             // 首先更新其父目录的isParent属性
@@ -66,6 +66,7 @@ public class GarbageItemCatServiceImpl implements GarbageCatService {
         // 其次添加该category
         garbageCategory.setIsParent(false);
         Date date = new Date();
+        garbageCategory.setLogo(image);
         garbageCategory.setCreated(date);
         garbageCategory.setCatStatus(1);
         garbageCategory.setUpdated(date);
@@ -88,7 +89,7 @@ public class GarbageItemCatServiceImpl implements GarbageCatService {
     }
 
     @Override
-    public Result updateCat(Long cid, GarbageCategory garbageCategory) {
+    public Result updateCat(String image, Long cid, GarbageCategory garbageCategory) {
         if (cid != null){
             // 更新父目录的状态
             garbageCategory.setParentId(cid);
@@ -97,7 +98,9 @@ public class GarbageItemCatServiceImpl implements GarbageCatService {
             father.setIsParent(true);
             garbageCategoryMapper.updateByPrimaryKeySelective(father);
         }
-
+        if (image != null){
+            garbageCategory.setLogo(image);
+        }
         // 其次更新该category
         Date date = new Date();
         garbageCategory.setUpdated(date);

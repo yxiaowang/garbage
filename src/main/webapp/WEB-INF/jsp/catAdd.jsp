@@ -33,7 +33,7 @@
                 <td>logo:</td>
                 <td>
                     <a href="javascript:void(0)" class="easyui-linkbutton picFileUpload">上传logo</a>
-                    <input type="hidden" name="logo"/>
+                    <input type="hidden" name="image"/>
                 </td>
             </tr>
             <%--            <tr>--%>
