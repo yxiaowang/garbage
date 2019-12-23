@@ -8,6 +8,7 @@
         <version>2.2.2.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>com.njupt</groupId>
     <artifactId>garbage</artifactId>
     <version>0.0.1-SNAPSHOT</version>
