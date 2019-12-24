@@ -21,7 +21,7 @@
 <div data-options="region:'west',title:'菜单',split:true" style="width:180px;">
     <ul id="menu" class="easyui-tree" style="margin-top: 10px;margin-left: 5px;">
         <li>
-            <span>商品管理</span>
+            <span>垃圾分类管理</span>
             <ul>
                 <%--每一个url对应着一个jsp，当前url加上jsp名--%>
                 <li data-options="attributes:{'url':'cat-list'}">查询分类目录</li>
@@ -32,10 +32,16 @@
             </ul>
         </li>
         <li>
-            <span>网站内容管理</span>
+            <span>标签内容管理</span>
             <ul>
-                <li data-options="attributes:{'url':'content-category'}">内容分类管理</li>
-                <li data-options="attributes:{'url':'content'}">内容管理</li>
+                <li data-options="attributes:{'url':'content-category'}">查询标签列表</li>
+                <li data-options="attributes:{'url':'content'}">新增标签</li>
+            </ul>
+        </li>
+        <li>
+            <span>搜索</span>
+            <ul>
+                <li data-options="attributes:{'url':'search'}">搜索</li>
             </ul>
         </li>
     </ul>
