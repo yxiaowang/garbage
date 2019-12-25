@@ -92,4 +92,15 @@ public class GarbageItemServiceImpl implements GarbageItemService {
         garbageItemMapper.deleteByPrimaryKey(id);
         return Result.ok();
     }
+
+    @Override
+    public List<GarbageItem> findGarbageByCat(String name) {
+        StringBuffer sql = new StringBuffer();
+        sql.append("SELECT item_name FROM gg_item,gg_item_cat ");
+        sql.append(" WHERE  gg_item_cat.name_cn = ");
+        sql.append(name);
+        sql.append(" AND gg_item.cid = gg_item_cat.id");
+
+        return null;
+    }
 }
