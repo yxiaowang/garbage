@@ -15,4 +15,5 @@ public interface GarbageItemService {
     EUDataGridResult findItemList(int page, int rows) throws Exception;
     Result updateItem(String image, GarbageItem garbageItem);
     Result deleteById(long id);
+    List<GarbageItem> findGarbageByCat(String name); //根据种类查询该种类下的垃圾项
 }
