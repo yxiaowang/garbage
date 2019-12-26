@@ -13,4 +13,5 @@ public interface GarbageCatService {
     Result updateCat(String image, Long cid, GarbageCategory garbageCategory);
     EUDataGridResult findCatList(int page, int rows) throws Exception;
     Result deleteCatById(Long id);
+    //test
 }
