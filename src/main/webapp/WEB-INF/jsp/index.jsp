@@ -34,7 +34,7 @@
         <li>
             <span>标签内容管理</span>
             <ul>
-                <li data-options="attributes:{'url':'content-category'}">查询标签列表</li>
+                <li data-options="attributes:{'url':'label-list'}">查询标签列表</li>
                 <li data-options="attributes:{'url':'content'}">新增标签</li>
             </ul>
         </li>

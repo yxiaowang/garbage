@@ -53,6 +53,10 @@ public class PageController {
         return "login";
     }
 
+    @RequestMapping("/label-list")
+    public String showLabelList(){
+        return "label-list";
+    }
     @RequestMapping("/search")
     public String showSearchPage(){
         return "search";
