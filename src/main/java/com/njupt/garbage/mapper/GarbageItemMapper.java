@@ -27,4 +27,8 @@ public interface GarbageItemMapper {
     int updateByPrimaryKeySelective(GarbageItem record);
 
     int updateByPrimaryKey(GarbageItem record);
+
+    List<GarbageItem> selectByCatCnName(String nameCn);
+
+    List<GarbageItem> selectByLabelContent(String content);
 }

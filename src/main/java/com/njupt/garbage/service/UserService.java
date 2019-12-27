@@ -1,5 +1,6 @@
 package com.njupt.garbage.service;
 
+import com.njupt.garbage.common.pojo.EUDataGridResult;
 import com.njupt.garbage.common.pojo.Result;
 import com.njupt.garbage.pojo.User;
 
@@ -10,5 +11,7 @@ public interface UserService {
 
     Result login(String username, String password, HttpServletRequest request, HttpServletResponse response);
     Result registerUser(User tbUser);
+    EUDataGridResult findUserList(int page, int rows) throws Exception;
+    Result setPermission(long id, int type);
 
 }

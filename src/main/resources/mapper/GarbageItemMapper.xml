@@ -76,6 +76,32 @@
     id, item_name, logo, item_desc, matters, disposal, QR_code, cid, item_status, created, 
     updated
   </sql>
+  <select id="selectByCatCnName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT
+gg_item.*
+FROM
+gg_item,
+gg_item_cat
+WHERE
+gg_item.cid = gg_item_cat.id
+AND
+gg_item_cat.name_cn LIKE #{nameCn, jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByLabelContent" parameterType="java.lang.String" resultMap="BaseResultMap">
+    SELECT
+gg_item.*
+FROM
+gg_item,
+gg_label,
+gg_label_item
+WHERE
+gg_label_item.item_id = gg_item.id
+AND
+gg_label_item.label_id = gg_label.id
+AND
+gg_label.content LIKE  #{content, jdbcType=VARCHAR}
+  </select>
   <select id="selectByExample" parameterType="com.njupt.garbage.pojo.GarbageItemExample" resultMap="BaseResultMap">
     select
     <if test="distinct">

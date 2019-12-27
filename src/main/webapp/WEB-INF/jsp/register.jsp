@@ -12,13 +12,6 @@
     <script type="text/javascript" src="/js/jquery-1.6.4.js"></script>
 </head>
 <body>
-<div class="w" id="logo">
-    <div>
-        <a href="http://localhost:8082">
-            <img src="/images/eshop.jpg" alt="淘淘商城" width="170" height="60"/>
-        </a> <b></b>
-    </div>
-</div>
 
 <div class="w" id="regist">
     <div class="mt">
@@ -53,7 +46,7 @@
                         <span class="label"><b class="ftx04">*</b>请设置密码：</span>
 
                         <div class="fl item-ifo">
-                            <input type="password" id="pwd" name="password" class="text" tabindex="2"
+                            <input type="password" id="pwd" name="passwd" class="text" tabindex="2"
                                    style="ime-mode:disabled;"
                                    onpaste="return  false" autocomplete="off"/>
                             <i class="i-pass"></i>
@@ -72,17 +65,6 @@
                             <i class="i-pass"></i>
                             <label id="pwdRepeat_succeed" class="blank"></label>
                             <label id="pwdRepeat_error"></label>
-                        </div>
-                    </div>
-                    <div class="item" id="dphone">
-                        <span class="label"><b class="ftx04">*</b>验证手机：</span>
-
-                        <div class="fl item-ifo">
-                            <input type="text" id="phone" maxlength="11" name="phone"
-                                   class="text" tabindex="4"
-                                   autocomplete="off"/> <i class="i-phone"></i> <label
-                                id="phone_succeed" class="blank"></label> <label
-                                id="phone_error"></label>
                         </div>
                     </div>
                 </div>
@@ -135,18 +117,7 @@
                     url: REGISTER.param.surl + "/user/check/" + escape($("#regName").val()) + "/1?r=" + Math.random(),
                     success: function (data) {
                         if (data.data) {
-                            //检查手机号是否存在
-                            $.ajax({
-                                url: REGISTER.param.surl + "/user/check/" + $("#phone").val() + "/2?r=" + Math.random(),
-                                success: function (data) {
-                                    if (data.data) {
-                                        REGISTER.doSubmit();
-                                    } else {
-                                        alert("此手机号已经被注册！");
-                                        $("#phone").select();
-                                    }
-                                }
-                            });
+                            REGISTER.doSubmit();
                         } else {
                             alert("此用户名已经被占用，请选择其他用户名");
                             $("#regName").select();
@@ -167,12 +138,12 @@
                 });
             },
             login: function () {
-                location.href = "/user/showLogin";
+                location.href = "/user/login";
                 return false;
             },
             reg: function () {
                 if (this.inputcheck()) {
-                    this.beforeSubmit();
+                    this.doSubmit();
                 }
             }
         };

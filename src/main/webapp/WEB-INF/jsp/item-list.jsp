@@ -1,8 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <table class="easyui-datagrid" id="itemList" title="垃圾分类列表"
        data-options="singleSelect:false,collapsible:true,pagination:true,url:'/item/list',method:'get',pageSize:30,toolbar:toolbar">
     <%--这个是请求的url，自带page和rows参数--%>
     <%--请求的url：http://localhost:8080/item/list?page=1&rows=30 --%>
+
+        
+        <div  style="margin-top: 5px;">
+            <tr style="margin-top: 10px;">
+                <input id="keyword-search" placeholder="关键词查询"/>
+                <button style="margin-left: 5px;" id="keyword-btn" onclick="keyWordSearch()">搜索</button>
+            </tr>
+            <tr style="margin-top: 10px;">
+                <input id="cat-search" placeholder="分类目录查询"/>
+                <button style="margin-left: 5px;" id="cat-btn" onclick="catSearch()">搜索</button>
+            </tr>
+            <tr style="margin-top: 10px;">
+                <input style="margin-left: 20px;"  id="label-search" placeholder="标签查询"/>
+                <button style="margin-left: 5px;" id="label-btn" onclick="labelSearch()">搜索</button>
+            </tr>
+        </div>
+
     <thead>
     <tr>
         <th data-options="field:'ck',checkbox:true"></th>

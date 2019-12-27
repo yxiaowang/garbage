@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.njupt.garbage.mapper.GarbageLabelItemMapper">
   <resultMap id="BaseResultMap" type="com.njupt.garbage.pojo.GarbageLabelItem">
-    <id column="id" jdbcType="VARCHAR" property="id" />
-    <result column="item_id" jdbcType="VARCHAR" property="itemId" />
-    <result column="label_id" jdbcType="VARCHAR" property="labelId" />
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="item_id" jdbcType="BIGINT" property="itemId" />
+    <result column="label_id" jdbcType="BIGINT" property="labelId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -81,15 +81,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from gg_label_item
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from gg_label_item
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="com.njupt.garbage.pojo.GarbageLabelItemExample">
     delete from gg_label_item
@@ -100,7 +100,7 @@
   <insert id="insert" parameterType="com.njupt.garbage.pojo.GarbageLabelItem">
     insert into gg_label_item (id, item_id, label_id
       )
-    values (#{id,jdbcType=VARCHAR}, #{itemId,jdbcType=VARCHAR}, #{labelId,jdbcType=VARCHAR}
+    values (#{id,jdbcType=BIGINT}, #{itemId,jdbcType=BIGINT}, #{labelId,jdbcType=BIGINT}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.njupt.garbage.pojo.GarbageLabelItem">
@@ -118,13 +118,13 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=VARCHAR},
+        #{id,jdbcType=BIGINT},
       </if>
       <if test="itemId != null">
-        #{itemId,jdbcType=VARCHAR},
+        #{itemId,jdbcType=BIGINT},
       </if>
       <if test="labelId != null">
-        #{labelId,jdbcType=VARCHAR},
+        #{labelId,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -138,13 +138,13 @@
     update gg_label_item
     <set>
       <if test="record.id != null">
-        id = #{record.id,jdbcType=VARCHAR},
+        id = #{record.id,jdbcType=BIGINT},
       </if>
       <if test="record.itemId != null">
-        item_id = #{record.itemId,jdbcType=VARCHAR},
+        item_id = #{record.itemId,jdbcType=BIGINT},
       </if>
       <if test="record.labelId != null">
-        label_id = #{record.labelId,jdbcType=VARCHAR},
+        label_id = #{record.labelId,jdbcType=BIGINT},
       </if>
     </set>
     <if test="_parameter != null">
@@ -153,9 +153,9 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update gg_label_item
-    set id = #{record.id,jdbcType=VARCHAR},
-      item_id = #{record.itemId,jdbcType=VARCHAR},
-      label_id = #{record.labelId,jdbcType=VARCHAR}
+    set id = #{record.id,jdbcType=BIGINT},
+      item_id = #{record.itemId,jdbcType=BIGINT},
+      label_id = #{record.labelId,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -164,18 +164,18 @@
     update gg_label_item
     <set>
       <if test="itemId != null">
-        item_id = #{itemId,jdbcType=VARCHAR},
+        item_id = #{itemId,jdbcType=BIGINT},
       </if>
       <if test="labelId != null">
-        label_id = #{labelId,jdbcType=VARCHAR},
+        label_id = #{labelId,jdbcType=BIGINT},
       </if>
     </set>
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.njupt.garbage.pojo.GarbageLabelItem">
     update gg_label_item
-    set item_id = #{itemId,jdbcType=VARCHAR},
-      label_id = #{labelId,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=VARCHAR}
+    set item_id = #{itemId,jdbcType=BIGINT},
+      label_id = #{labelId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

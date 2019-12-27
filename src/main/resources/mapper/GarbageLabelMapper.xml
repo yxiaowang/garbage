@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.njupt.garbage.mapper.GarbageLabelMapper">
   <resultMap id="BaseResultMap" type="com.njupt.garbage.pojo.GarbageLabel">
-    <id column="id" jdbcType="VARCHAR" property="id" />
+    <id column="id" jdbcType="BIGINT" property="id" />
     <result column="content" jdbcType="VARCHAR" property="content" />
     <result column="label_status" jdbcType="INTEGER" property="labelStatus" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
@@ -83,15 +83,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from gg_label
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from gg_label
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="com.njupt.garbage.pojo.GarbageLabelExample">
     delete from gg_label
@@ -102,7 +102,7 @@
   <insert id="insert" parameterType="com.njupt.garbage.pojo.GarbageLabel">
     insert into gg_label (id, content, label_status, 
       create_time, update_time)
-    values (#{id,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{labelStatus,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=BIGINT}, #{content,jdbcType=VARCHAR}, #{labelStatus,jdbcType=INTEGER}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.njupt.garbage.pojo.GarbageLabel">
@@ -126,7 +126,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=VARCHAR},
+        #{id,jdbcType=BIGINT},
       </if>
       <if test="content != null">
         #{content,jdbcType=VARCHAR},
@@ -152,7 +152,7 @@
     update gg_label
     <set>
       <if test="record.id != null">
-        id = #{record.id,jdbcType=VARCHAR},
+        id = #{record.id,jdbcType=BIGINT},
       </if>
       <if test="record.content != null">
         content = #{record.content,jdbcType=VARCHAR},
@@ -173,7 +173,7 @@
   </update>
   <update id="updateByExample" parameterType="map">
     update gg_label
-    set id = #{record.id,jdbcType=VARCHAR},
+    set id = #{record.id,jdbcType=BIGINT},
       content = #{record.content,jdbcType=VARCHAR},
       label_status = #{record.labelStatus,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -198,7 +198,7 @@
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.njupt.garbage.pojo.GarbageLabel">
     update gg_label
@@ -206,6 +206,6 @@
       label_status = #{labelStatus,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

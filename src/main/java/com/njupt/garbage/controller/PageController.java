@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class PageController {
 
-    @RequestMapping("/index")
+    @RequestMapping("/main")
     public String showIndex(){
-        return "index";
+        return "main";
     }
 
     @RequestMapping("/item-list")
@@ -50,11 +50,31 @@ public class PageController {
     @RequestMapping("/user/login")
     public String showLoginPage(String redirect, Model model){
         model.addAttribute("redirect", redirect);
-        return "login";
+        return "index";
     }
 
     @RequestMapping("/search")
     public String showSearchPage(){
         return "search";
+    }
+
+    @RequestMapping("/label-list")
+    public String showLabelListPage(){
+        return "label-list";
+    }
+
+    @RequestMapping("/label-add")
+    public String showLabelAddPage(){
+        return "label-add";
+    }
+
+    @RequestMapping("/label-edit")
+    public String showLabelEditPage(){
+        return "label-edit";
+    }
+
+    @RequestMapping("/user-list")
+    public String showUserListPage(){
+        return "user-list";
     }
 }

@@ -1,33 +1,33 @@
 package com.njupt.garbage.pojo;
 
 public class GarbageLabelItem {
-    private String id;
+    private Long id;
 
-    private String itemId;
+    private Long itemId;
 
-    private String labelId;
+    private Long labelId;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getItemId() {
+    public Long getItemId() {
         return itemId;
     }
 
-    public void setItemId(String itemId) {
-        this.itemId = itemId == null ? null : itemId.trim();
+    public void setItemId(Long itemId) {
+        this.itemId = itemId;
     }
 
-    public String getLabelId() {
+    public Long getLabelId() {
         return labelId;
     }
 
-    public void setLabelId(String labelId) {
-        this.labelId = labelId == null ? null : labelId.trim();
+    public void setLabelId(Long labelId) {
+        this.labelId = labelId;
     }
 }
