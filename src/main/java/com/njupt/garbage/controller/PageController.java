@@ -57,8 +57,8 @@ public class PageController {
     public String showLabelList(){
         return "label-list";
     }
-    @RequestMapping("/search")
+    @RequestMapping("/search-list")
     public String showSearchPage(){
-        return "search";
+        return "search-list";
     }
 }
