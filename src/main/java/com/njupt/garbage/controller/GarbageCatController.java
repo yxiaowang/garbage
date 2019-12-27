@@ -1,5 +1,6 @@
 package com.njupt.garbage.controller;
 
+import com.njupt.garbage.anotation.OnlyManager;
 import com.njupt.garbage.common.pojo.EUDataGridResult;
 import com.njupt.garbage.common.pojo.EUTreeNode;
 import com.njupt.garbage.common.pojo.Result;
@@ -28,6 +29,7 @@ public class GarbageCatController {
 
     @RequestMapping("/cat/save")
     @ResponseBody
+    @OnlyManager
     public Result addCat(String image, Long cid, GarbageCategory garbageCategory){
         Result result = garbageCatService.addCat(image, cid, garbageCategory);
         return result;
@@ -42,6 +44,7 @@ public class GarbageCatController {
 
     @RequestMapping("/cat/update")
     @ResponseBody
+    @OnlyManager
     public Result updateCat(String image, Long cid, GarbageCategory garbageCategory){
         Result result = garbageCatService.updateCat(image, cid, garbageCategory);
         return result;
@@ -49,6 +52,7 @@ public class GarbageCatController {
 
     @RequestMapping("/cat/delete")
     @ResponseBody
+    @OnlyManager
     public Result deleteCatById(String ids){
         String[] idss = ids.split(",");
         for (String id: idss){

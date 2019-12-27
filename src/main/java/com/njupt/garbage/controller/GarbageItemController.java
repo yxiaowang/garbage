@@ -1,6 +1,7 @@
 package com.njupt.garbage.controller;
 
 
+import com.njupt.garbage.anotation.OnlyManager;
 import com.njupt.garbage.common.pojo.EUDataGridResult;
 import com.njupt.garbage.common.pojo.Result;
 import com.njupt.garbage.pojo.GarbageItem;
@@ -21,6 +22,7 @@ public class GarbageItemController {
 
     @RequestMapping("/item/save")
     @ResponseBody
+    @OnlyManager
     public Result addGarbageItem(String image, GarbageItem garbageItem){
         Result result = garbageItemService.addGarbageItem(image, garbageItem);
         return result;
@@ -36,6 +38,7 @@ public class GarbageItemController {
 
     @RequestMapping("/item/update")
     @ResponseBody
+    @OnlyManager
     public Result updateItem(String image, GarbageItem item){
         Result result = garbageItemService.updateItem(image, item);
         return result;
@@ -43,6 +46,7 @@ public class GarbageItemController {
 
     @RequestMapping("/item/delete")
     @ResponseBody
+    @OnlyManager
     public Result deleteById(String ids){
         String[] idss = ids.split(",");
         for (String id: idss){
@@ -58,17 +62,32 @@ public class GarbageItemController {
         return garbageItem;
     }
 
-    @RequestMapping("/item/findByName/{name}")
+    @RequestMapping("/item/findItemByKeyword/{keyword}")
     @ResponseBody
-    public List<GarbageItem> findGabageItemsByName(@PathVariable String name){
-        List<GarbageItem> list = garbageItemService.findGarbageByName(name);
+    public List<GarbageItem> findGabageItemsByKeyword(@PathVariable String keyword){
+        List<GarbageItem> list = garbageItemService.findGarbageByKeyword(keyword);
         return list;
     }
 
     @RequestMapping("/item/deleteByName/{name}")
     @ResponseBody
+    @OnlyManager
     public Result deleteByName(@PathVariable String name){
         Result result = garbageItemService.deleteByItemName(name);
         return result;
+    }
+
+    @RequestMapping("/item/findItemByCatCnName/{nameCn}")
+    @ResponseBody
+    public List<GarbageItem> findItemByCatCnName(@PathVariable String nameCn){
+        List<GarbageItem> list = garbageItemService.findGarbageByCatCnName(nameCn);
+        return list;
+    }
+
+
+    @RequestMapping("/item/findItemByLabelContent/{content}")
+    public List<GarbageItem> findGarbageByLabelContent(@PathVariable  String content) {
+        List<GarbageItem> list = garbageItemService.findGarbageByLabelContent(content);
+        return list;
     }
 }

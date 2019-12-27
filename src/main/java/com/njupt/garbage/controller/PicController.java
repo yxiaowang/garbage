@@ -1,5 +1,6 @@
 package com.njupt.garbage.controller;
 
+import com.njupt.garbage.anotation.OnlyManager;
 import com.njupt.garbage.common.utils.JsonUtils;
 import com.njupt.garbage.service.PictureService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,7 @@ public class PicController {
 
     @RequestMapping("/pic/upload")
     @ResponseBody
+    @OnlyManager
     public String pictureUpload(MultipartFile uploadFile) throws IOException {
         Map resultMap = pictureService.pictureUpload(uploadFile);
         String json = JsonUtils.objectToJson(resultMap);

@@ -1,115 +1,149 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<table id="searchList" title="搜索"
-       data-options="singleSelect:false,collapsible:true,pagination:true,url:'/search/list',method:'get',pageSize:30,toolbar:toolbar">
-    <%--这个是请求的url，自带page和rows参数--%>
-    <%--请求的url：http://localhost:8080/item/list?page=1&rows=30 --%>
-        <div style="border:1px solid #95bae7;height: 25px;line-height:25px;font-size: 1.1em;font-weight: bold;background: #e6f0ff" idq="search-title">&nbsp;搜索</div>
-    <thead>
-    <div  style="margin-top: 5px;">
-    <tr style="margin-top: 10px;">
-        <input id="cat-search" placeholder="分类目录查询"/>
-        <button style="margin-left: 5px;" id="cat-btn" data-options="attributes:{'url':'cat-search'}">搜索</button>
-    </tr>
-    <tr style="margin-top: 10px;">
-        <input style="margin-left: 20px;"  id="label-search" placeholder="标签查询"/>
-        <button style="margin-left: 5px;" id="label-btn">搜索</button>
-    </tr>
-    <tr style="margin-top: 10px;">
-        <input style="margin-left: 20px;" id="pic-searching" placeholder="图片查询"/>
-        <button style="margin-left: 5px;" id="pic-btn">搜索</button>
-    </tr></div>
-    </thead>
-</table>
-<table class="easyui-datagrid" id="labelList" title="标签列表"
-       data-options="singleSelect:false,collapsible:true,pagination:true,url:'/search/list',method:'get',pageSize:30,toolbar:toolbar">
-    <%--这个是请求的url，自带page和rows参数--%>
-    <%--请求的url：http://localhost:8080/item/list?page=1&rows=30 --%>
-    <thead>
-    <tr>
-        <th data-options="field:'ck',checkbox:true"></th>
-        <th data-options="field:'id',width:60">标签ID</th>
-        <th data-options="field:'content',width:200">关键词</th>
-        <th data-options="field:'labelStatus',width:60,align:'center',formatter:TAOTAO.formatItemStatus">状态</th>
-        <th data-options="field:'createTime',width:130,align:'center',formatter:TAOTAO.formatDateTime">创建日期</th>
-        <th data-options="field:'updateTime',width:130,align:'center',formatter:TAOTAO.formatDateTime">更新日期</th>
-    </tr>
-    </thead>
-</table>
-
-<div id="catEditWindow" class="easyui-window" title="编辑分类目录"
-     data-options="modal:true,closed:true,iconCls:'icon-save',href:'/cat-edit'"
-     style="width:80%;height:80%;padding:10px;">
-</div>
-<script>
-
-    function getSelectionsIds() {
-        var catList = $("#catList");
-        var sels = catList.datagrid("getSelections");
-        var ids = [];
-        for (var i in sels) {
-            ids.push(sels[i].id);
+    <style>
+        .center{
+            text-align: center;
         }
-        ids = ids.join(",");
-        return ids;
-    }
-
-    var toolbar = [{
-        text: '新增',
-        iconCls: 'icon-add',
-        handler: function () {
-            $(".tree-title:contains('新增分类目录')").parent().click();
+        .resultHead{
+            border: 1px solid #dddddd;background: #e5efff;height: 2em;line-height: 2em;
+            font-weight: bold;
         }
-    }, {
-        text: '编辑',
-        iconCls: 'icon-edit',
-        handler: function () {
-            var ids = getSelectionsIds();
-            if (ids.length == 0) {
-                $.messager.alert('提示', '必须选择一个分类目录才能编辑!');
-                return;
-            }
-            if (ids.indexOf(',') > 0) {
-                $.messager.alert('提示', '只能选择一个分类目录!');
-                return;
-            }
-
-            $("#catEditWindow").window({
-                onLoad: function () {
-                    //回显数据
-                    var data = $("#catList").datagrid("getSelections")[0];
-                    $("#catEditForm").form("load", data);
-
-                    TAOTAO.init({
-                        "pics": data.image,
-                        "cid": data.cid,
-                        fun: function (node) {
-                            TAOTAO.changeItemParam(node, "catEditForm");
-                        }
-                    });
-                }
-            }).window("open");
+        .resultTHead{
+            border: 1px solid #dddddd;background: #f4f4f4;height: 2em;
         }
-    }, {
-        text: '删除',
-        iconCls: 'icon-cancel',
-        handler: function () {
-            var ids = getSelectionsIds();
-            if (ids.length == 0) {
-                $.messager.alert('提示', '未选中商品!');
-                return;
+        .resultTable{
+            margin-top: 10px;
+            border: 1px solid #a5b8e7;background: #fff;
+        }
+    </style>
+    <script type="text/javascript">
+        function dateFormat(date) {
+            return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+        }
+        function exaggerate(data) {
+            html = "<thead class=\"resultTHead\">\n" +
+                "                <tr>\n" +
+                "                    <th style=\"width: 8%;text-align: center\">垃圾分类项ID</th>\n" +
+                "                    <th style=\"width: 8%;text-align: center\">分类名称</th>\n" +
+                "                    <th style=\"width: 8%;text-align: center\">分类目录ID</th>\n" +
+                "                    <th style=\"width: 12%;text-align: center\">详细信息</th>\n" +
+                "                    <th style=\"width: 12%;text-align: center\">主要事项</th>\n" +
+                "                    <th style=\"width: 10%;text-align: center\" >处理方式</th>\n" +
+                "                    <th style=\"width: 10%;text-align: center\">logo</th>\n" +
+                "                    <th style=\"width: 8%;text-align: center\">二维码</th>\n" +
+                "                    <th style=\"width: 10%;text-align: center\">状态</th>\n" +
+                "                    <th style=\"width: 10%;text-align: center\">创建日期</th>\n" +
+                "                    <th style=\"width: 10%;text-align: center\">更新日期</th>\n" +
+                "                </tr>\n" +
+                "            </thead>";
+            for(var i=0; i < data.length; i++){
+                var created = dateFormat(new Date(data[i].created));
+                var updated = dateFormat(new Date(data[i].updated));
+                html += "<tr>\n" +
+                    "                <td class=\"center\">"+ data[i].id +"</td>\n" +
+                    "                <td class=\"center\">"+ data[i].itemName +"</td>\n" +
+                    "                <td class=\"center\">"+ data[i].cid +"</td>\n" +
+                    "                <td class=\"center\">"+ data[i].itemDesc +"</td>\n" +
+                    "                <td class=\"center\">"+ data[i].matters +"</td>\n" +
+                    "                <td class=\"center\">"+ data[i].disposal +"</td>\n" +
+                    "                <td class=\"center\">"+ data[i].logo +"</td>\n" +
+                    "                <td class=\"center\">"+ data[i].qrCode +"</td>\n" +
+                    "                <td class=\"center\">正常</td>\n" +
+                    "                <td class=\"center\">"+ created +"</td>\n" +
+                    "                <td class=\"center\">"+ updated +"</td>\n" +
+                    "            </tr>";
             }
-            $.messager.confirm('确认', '确定删除ID为 ' + ids + ' 的分类目录吗？', function (r) {
-                if (r) {
-                    var params = {"ids": ids};
-                    $.post("/cat/delete", params, function (data) {
-                        if (data.status == 200) {
-                            $.messager.alert('提示', '删除分类目录成功!', undefined, function () {
-                                $("#catList").datagrid("reload");
-                            });
-                        }
-                    });
+            return html;
+        }
+
+        function catSearch() {
+            var html="";
+            var nameCn = $("#nameCn").val();
+            $.ajax({
+                type:"get",
+                async:false,//同步请求
+                url:"/item/findItemByCatCnName/" + nameCn,
+                success:function (data) {
+                    $("#searchResult").html(exaggerate(data));
                 }
             });
         }
-    }];
-</script>
+
+        function keywordSearch() {
+            var html="";
+            var keyword = $("#keyword").val();
+            $.ajax({
+                type:"get",
+                async:false,//同步请求
+                url:"/item/findItemByKeyword/" + keyword,
+                success:function (data) {
+                    $("#searchResult").html(exaggerate(data));
+                }
+            });
+        }
+
+        function labelSearch() {
+            var html="";
+            var content = $("#content").val();
+            alert(content);
+            $.ajax({
+                type:"get",
+                async:false,//同步请求
+                url:"/item/findItemByLabelContent/" + content,
+                success:function (data) {
+                    $("#searchResult").html(exaggerate(data));
+                }
+            });
+
+        }
+    </script>
+    <div  style="margin-top: 5px;">
+        <tr style="margin-top: 10px;">
+            <input style="margin-left: 20px;" id="keyword" placeholder="关键词查询" />
+            <button style="margin-left: 5px;" id="keyword-btn" onclick="keywordSearch()">搜索</button>
+        </tr>
+
+        <tr style="margin-top: 10px;">
+            <input id="nameCn" placeholder="分类目录查询"/>
+            <button style="margin-left: 5px;" id="cat-btn" onclick="catSearch()">搜索</button>
+        </tr>
+        <tr style="margin-top: 10px;">
+            <input style="margin-left: 20px;"  id="content" placeholder="标签查询"/>
+            <button style="margin-left: 5px;" id="label-btn" onclick="labelSearch()">搜索</button>
+        </tr>
+    </div>
+    <div class="resultTable"><div class="resultHead">
+
+            &nbsp;&nbsp;查询结果
+        </div>
+        <table id = "searchResult">
+            <thead class="resultTHead">
+                <tr>
+                    <th style="width: 8%;text-align: center">垃圾分类项ID</th>
+                    <th style="width: 8%;text-align: center">分类名称</th>
+                    <th style="width: 8%;text-align: center">分类目录ID</th>
+                    <th style="width: 12%;text-align: center">详细信息</th>
+                    <th style="width: 12%;text-align: center">主要事项</th>
+                    <th style="width: 10%;text-align: center" >处理方式</th>
+                    <th style="width: 10%;text-align: center">logo</th>
+                    <th style="width: 8%;text-align: center">二维码</th>
+                    <th style="width: 10%;text-align: center">状态</th>
+                    <th style="width: 10%;text-align: center">创建日期</th>
+                    <th style="width: 10%;text-align: center">更新日期</th>
+                </tr>
+            </thead>
+
+            <tr>
+                <td class="center">1</td>
+                <td class="center">1</td>
+                <td class="center">1</td>
+                <td class="center">1</td>
+                <td class="center">1</td>
+                <td class="center">1</td>
+                <td class="center">1</td>
+                <td class="center">1</td>
+                <td class="center">1</td>
+                <td class="center">1</td>
+                <td class="center">1</td>
+            </tr>
+        </table>
+    </div>

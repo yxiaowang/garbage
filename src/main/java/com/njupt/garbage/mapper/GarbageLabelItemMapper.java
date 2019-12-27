@@ -10,7 +10,7 @@ public interface GarbageLabelItemMapper {
 
     int deleteByExample(GarbageLabelItemExample example);
 
-    int deleteByPrimaryKey(String id);
+    int deleteByPrimaryKey(Long id);
 
     int insert(GarbageLabelItem record);
 
@@ -18,7 +18,7 @@ public interface GarbageLabelItemMapper {
 
     List<GarbageLabelItem> selectByExample(GarbageLabelItemExample example);
 
-    GarbageLabelItem selectByPrimaryKey(String id);
+    GarbageLabelItem selectByPrimaryKey(Long id);
 
     int updateByExampleSelective(@Param("record") GarbageLabelItem record, @Param("example") GarbageLabelItemExample example);
 

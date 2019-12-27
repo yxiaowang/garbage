@@ -114,62 +114,52 @@ public class GarbageLabelItemExample {
             return (Criteria) this;
         }
 
-        public Criteria andIdEqualTo(String value) {
+        public Criteria andIdEqualTo(Long value) {
             addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotEqualTo(String value) {
+        public Criteria andIdNotEqualTo(Long value) {
             addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThan(String value) {
+        public Criteria andIdGreaterThan(Long value) {
             addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdGreaterThanOrEqualTo(String value) {
+        public Criteria andIdGreaterThanOrEqualTo(Long value) {
             addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThan(String value) {
+        public Criteria andIdLessThan(Long value) {
             addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLessThanOrEqualTo(String value) {
+        public Criteria andIdLessThanOrEqualTo(Long value) {
             addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdLike(String value) {
-            addCriterion("id like", value, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdNotLike(String value) {
-            addCriterion("id not like", value, "id");
-            return (Criteria) this;
-        }
-
-        public Criteria andIdIn(List<String> values) {
+        public Criteria andIdIn(List<Long> values) {
             addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotIn(List<String> values) {
+        public Criteria andIdNotIn(List<Long> values) {
             addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdBetween(String value1, String value2) {
+        public Criteria andIdBetween(Long value1, Long value2) {
             addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andIdNotBetween(String value1, String value2) {
+        public Criteria andIdNotBetween(Long value1, Long value2) {
             addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
@@ -184,62 +174,52 @@ public class GarbageLabelItemExample {
             return (Criteria) this;
         }
 
-        public Criteria andItemIdEqualTo(String value) {
+        public Criteria andItemIdEqualTo(Long value) {
             addCriterion("item_id =", value, "itemId");
             return (Criteria) this;
         }
 
-        public Criteria andItemIdNotEqualTo(String value) {
+        public Criteria andItemIdNotEqualTo(Long value) {
             addCriterion("item_id <>", value, "itemId");
             return (Criteria) this;
         }
 
-        public Criteria andItemIdGreaterThan(String value) {
+        public Criteria andItemIdGreaterThan(Long value) {
             addCriterion("item_id >", value, "itemId");
             return (Criteria) this;
         }
 
-        public Criteria andItemIdGreaterThanOrEqualTo(String value) {
+        public Criteria andItemIdGreaterThanOrEqualTo(Long value) {
             addCriterion("item_id >=", value, "itemId");
             return (Criteria) this;
         }
 
-        public Criteria andItemIdLessThan(String value) {
+        public Criteria andItemIdLessThan(Long value) {
             addCriterion("item_id <", value, "itemId");
             return (Criteria) this;
         }
 
-        public Criteria andItemIdLessThanOrEqualTo(String value) {
+        public Criteria andItemIdLessThanOrEqualTo(Long value) {
             addCriterion("item_id <=", value, "itemId");
             return (Criteria) this;
         }
 
-        public Criteria andItemIdLike(String value) {
-            addCriterion("item_id like", value, "itemId");
-            return (Criteria) this;
-        }
-
-        public Criteria andItemIdNotLike(String value) {
-            addCriterion("item_id not like", value, "itemId");
-            return (Criteria) this;
-        }
-
-        public Criteria andItemIdIn(List<String> values) {
+        public Criteria andItemIdIn(List<Long> values) {
             addCriterion("item_id in", values, "itemId");
             return (Criteria) this;
         }
 
-        public Criteria andItemIdNotIn(List<String> values) {
+        public Criteria andItemIdNotIn(List<Long> values) {
             addCriterion("item_id not in", values, "itemId");
             return (Criteria) this;
         }
 
-        public Criteria andItemIdBetween(String value1, String value2) {
+        public Criteria andItemIdBetween(Long value1, Long value2) {
             addCriterion("item_id between", value1, value2, "itemId");
             return (Criteria) this;
         }
 
-        public Criteria andItemIdNotBetween(String value1, String value2) {
+        public Criteria andItemIdNotBetween(Long value1, Long value2) {
             addCriterion("item_id not between", value1, value2, "itemId");
             return (Criteria) this;
         }
@@ -254,62 +234,52 @@ public class GarbageLabelItemExample {
             return (Criteria) this;
         }
 
-        public Criteria andLabelIdEqualTo(String value) {
+        public Criteria andLabelIdEqualTo(Long value) {
             addCriterion("label_id =", value, "labelId");
             return (Criteria) this;
         }
 
-        public Criteria andLabelIdNotEqualTo(String value) {
+        public Criteria andLabelIdNotEqualTo(Long value) {
             addCriterion("label_id <>", value, "labelId");
             return (Criteria) this;
         }
 
-        public Criteria andLabelIdGreaterThan(String value) {
+        public Criteria andLabelIdGreaterThan(Long value) {
             addCriterion("label_id >", value, "labelId");
             return (Criteria) this;
         }
 
-        public Criteria andLabelIdGreaterThanOrEqualTo(String value) {
+        public Criteria andLabelIdGreaterThanOrEqualTo(Long value) {
             addCriterion("label_id >=", value, "labelId");
             return (Criteria) this;
         }
 
-        public Criteria andLabelIdLessThan(String value) {
+        public Criteria andLabelIdLessThan(Long value) {
             addCriterion("label_id <", value, "labelId");
             return (Criteria) this;
         }
 
-        public Criteria andLabelIdLessThanOrEqualTo(String value) {
+        public Criteria andLabelIdLessThanOrEqualTo(Long value) {
             addCriterion("label_id <=", value, "labelId");
             return (Criteria) this;
         }
 
-        public Criteria andLabelIdLike(String value) {
-            addCriterion("label_id like", value, "labelId");
-            return (Criteria) this;
-        }
-
-        public Criteria andLabelIdNotLike(String value) {
-            addCriterion("label_id not like", value, "labelId");
-            return (Criteria) this;
-        }
-
-        public Criteria andLabelIdIn(List<String> values) {
+        public Criteria andLabelIdIn(List<Long> values) {
             addCriterion("label_id in", values, "labelId");
             return (Criteria) this;
         }
 
-        public Criteria andLabelIdNotIn(List<String> values) {
+        public Criteria andLabelIdNotIn(List<Long> values) {
             addCriterion("label_id not in", values, "labelId");
             return (Criteria) this;
         }
 
-        public Criteria andLabelIdBetween(String value1, String value2) {
+        public Criteria andLabelIdBetween(Long value1, Long value2) {
             addCriterion("label_id between", value1, value2, "labelId");
             return (Criteria) this;
         }
 
-        public Criteria andLabelIdNotBetween(String value1, String value2) {
+        public Criteria andLabelIdNotBetween(Long value1, Long value2) {
             addCriterion("label_id not between", value1, value2, "labelId");
             return (Criteria) this;
         }

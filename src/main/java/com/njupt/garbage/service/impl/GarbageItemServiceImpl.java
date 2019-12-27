@@ -48,10 +48,10 @@ public class GarbageItemServiceImpl implements GarbageItemService {
     }
 
     @Override
-    public List<GarbageItem> findGarbageByName(String name) {
+    public List<GarbageItem> findGarbageByKeyword(String keyword) {
         GarbageItemExample example = new GarbageItemExample();
         GarbageItemExample.Criteria criteria = example.createCriteria();
-        criteria.andItemNameLike(name);
+        criteria.andItemNameLike("%" + keyword + "%");
         List<GarbageItem> list = garbageItemMapper.selectByExample(example);
         return list;
     }
@@ -62,6 +62,7 @@ public class GarbageItemServiceImpl implements GarbageItemService {
         // 设置分页
         PageHelper.startPage(page, rows);
         List<GarbageItem> list = garbageItemMapper.selectByExample(example);
+
         PageInfo<GarbageItem> pageInfo = new PageInfo<GarbageItem>(list);
         EUDataGridResult euDataGridResult = new EUDataGridResult();
         euDataGridResult.setRows(list);
@@ -91,5 +92,17 @@ public class GarbageItemServiceImpl implements GarbageItemService {
     public Result deleteById(long id) {
         garbageItemMapper.deleteByPrimaryKey(id);
         return Result.ok();
+    }
+
+    @Override
+    public List<GarbageItem> findGarbageByCatCnName(String nameCn) {
+        List<GarbageItem> list = garbageItemMapper.selectByCatCnName("%" + nameCn + "%");
+        return list;
+    }
+
+    @Override
+    public List<GarbageItem> findGarbageByLabelContent(String content) {
+        List<GarbageItem> list = garbageItemMapper.selectByLabelContent("%" + content + "%");
+        return list;
     }
 }
